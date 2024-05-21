@@ -87,7 +87,7 @@ echo "<div >Ваш результат за 2 первых теста:&nbsp; <b>"
 </head>
 <body style="background-color: paleturquoise">
 <div><h1>3.Ответьте на вопросы</h1></div>
-<form method="post" action="get_result.php >
+<form method="post" action="get_result.php" >
     <?php
     if(count($_POST)==0){
     quess(null);
