@@ -34,7 +34,7 @@ if(!isset($_GET['name']))
 </head>
 <body style="background-color: paleturquoise">
 <div><h1>1.Выберите один правильный ответ</h1></div>
-    <form method="post"  >
+    <form method="post"   >
         <?php
         $s = array();
 if(count($_POST)==0 ){
@@ -70,6 +70,7 @@ else {
             }
             if ($ww)
                 $result += 1;
+            echo "<div><h4 style='color:red'>Ответ</h4></div>";
          }
 
       $_SESSION['result']=$result;

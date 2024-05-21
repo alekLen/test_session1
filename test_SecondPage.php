@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION["result"]))
 {
-    header("Location:index.php");
+    header("Location:test_FirstPage.php");
    exit();
 }
 $result = $_SESSION['result'];
