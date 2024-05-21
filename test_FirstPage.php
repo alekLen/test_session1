@@ -50,7 +50,7 @@ else {
         $s[$i] = $ans;
         $i++;
     }
-    if (count($_POST) < 10) {
+    if (count($_POST) != 10) {
         echo "<div><h4 style='color:red'>Ответьте на все вопросы</h4></div>";
         quess($s);
     } else {
@@ -71,12 +71,13 @@ else {
             if ($ww)
                 $result += 1;
          }
-        }
-         catch(Exception $e){  echo "<div><h4 style='color:red'>$emp_errormsg</h4></div>";
-        }
+
       $_SESSION['result']=$result;
         header("Location:test_SecondPage.php");
        exit();
+        }
+        catch(Exception $e){  echo "<div><h4 style='color:red'>$emp_errormsg</h4></div>";
+        }
     }
 }
 
