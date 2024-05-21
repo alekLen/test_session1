@@ -1,11 +1,30 @@
 <?php
 session_start();
-if(!isset($_SESSION["result"]))
+$result = 0;
+$s1 = array();
+$arr = file("test1.txt");
+$arr1 = explode("|", $arr[0]);
+for ($i = 0; $i < 10; $i++) {
+    $arr2 = explode(";", $arr1[$i]);
+    $c = count($arr2) - 1;
+    $i1 = $i + 1;
+    $ww = false;
+    for ($u = 0; $u < count($_POST); $u++) {
+        if ($_POST["r" . $i1] == "v" . $i1 . ":" . $arr2[$c])
+            $ww = true;
+    }
+    if ($ww)
+        $result += 1;
+    echo "<div><h4 style='color:red'>Ответ</h4></div>";
+}
+
+$_SESSION['result']=$result;
+if(count($_POST) != 10)
 {
     header("Location:test_FirstPage.php");
    exit();
 }
-$result = $_SESSION['result'];
+//$result = $_SESSION['result'];
 echo "<div >Ваш результат за 1-й тест:&nbsp; <b>".$_SESSION['result']."</b></div>";
 ?>
 <!DOCTYPE html>
