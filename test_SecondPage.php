@@ -15,7 +15,7 @@ for ($i = 0; $i < 10; $i++) {
     }
     if ($ww)
         $result += 1;
-    echo "<div><h4 style='color:red'>Ответ</h4></div>";
+
 }
 
 $_SESSION['result']=$result;
@@ -54,7 +54,7 @@ echo "<div >Ваш результат за 1-й тест:&nbsp; <b>".$_SESSION['
 </head>
 <body style="background-color: paleturquoise">
 <div><h1>2.Выберите все правильные ответы( может быть несколько)</h1></div>
-<form method="post"  >
+<form method="post" action="test_ThirdPage.php" >
     <?php
 
     if(count($_POST)==0){

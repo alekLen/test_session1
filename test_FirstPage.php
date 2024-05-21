@@ -75,7 +75,7 @@ else {
             }
             if ($ww)
                 $result += 1;
-            echo "<div><h4 style='color:red'>Ответ</h4></div>";
+
          }
 
       $_SESSION['result']=$result;

@@ -1,11 +1,63 @@
 <?php
 session_start();
-if(!isset($_SESSION["result"]))
-{
-   header("Location:index.php");
-    exit();
+$result =$_SESSION['result'] ;
+$t = 0;
+$s1 = array();
+$arr = file("test2.txt");
+$arr1 = explode("|", $arr[0]);
+for ($i = 0; $i < 10; $i++) {
+    $arr2 = explode(";", $arr1[$i]);
+    $c = count($arr2) - 1;
+    $c1 = explode(",", $arr2[$c]);
+    $q1 = false;
+    $q2 = false;
+    $q3 = false;
+    $y1 = false;
+    $y2 = false;
+    $y3 = false;
+    if (count($c1) == 1) {
+        if ($c1[0] == 1)
+            $y1 = true;
+        if ($c1[0] == 2)
+            $y2 = true;
+        if ($c1[0] == 3)
+            $y3 = true;
+    }
+    if (count($c1) == 2) {
+        if ($c1[0] == 1)
+            $y1 = true;
+        if ($c1[0] == 2)
+            $y2 = true;
+        if ($c1[0] == 3)
+            $y3 = true;
+        if ($c1[1] == 2)
+            $y2 = true;
+        if ($c1[1] == 3)
+            $y3 = true;
+    }
+    if (count($c1) == 3) {
+        $y1 = true;
+        $y2 = true;
+        $y3 = true;
+    }
+    $i1 = $i + 1;
+    $sv1 = "ch" . $i1 . "_" . "1";
+    $sv2 = "ch" . $i1 . "_" . "2";
+    $sv3 = "ch" . $i1 . "_" . "3";
+    if (isset($_POST[$sv1])) {
+        $q1 = true;
+    }
+    if (isset($_POST[$sv2])) {
+        $q2 = true;
+    }
+    if (isset($_POST[$sv3])) {
+        $q3 = true;
+    }
+
+    if ($q1 == $y1 && $q2 == $y2 && $q3 == $y3)
+        $result += 3;
 }
-$result = $_SESSION['result'];
+$_SESSION['result'] = $result;
 echo "<div >Ваш результат за 2 первых теста:&nbsp; <b>".$_SESSION['result']."</b></div>";
 ?>
 <!DOCTYPE html>
@@ -35,7 +87,7 @@ echo "<div >Ваш результат за 2 первых теста:&nbsp; <b>"
 </head>
 <body style="background-color: paleturquoise">
 <div><h1>3.Ответьте на вопросы</h1></div>
-<form method="post"  >
+<form method="post" action="get_result.php >
     <?php
     if(count($_POST)==0){
     quess(null);
