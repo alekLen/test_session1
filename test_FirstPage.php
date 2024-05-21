@@ -40,10 +40,8 @@ if(!isset($_GET['name']))
 if(count($_POST)==0){
      //   session_start();
         quess(null);
-?>
-</body>
-</html>
-<?php
+
+
 }
 else {
     $s = array();
@@ -76,7 +74,6 @@ else {
        exit();
     }
 }
-
 
 function quess($s){
     $j=array('0'=>0 ,'1'=>1,'2'=>2,'3'=>3,'4'=>4,'5'=>5,'6'=>6,'7'=>7,'8'=>8,'9'=>9);
@@ -117,4 +114,5 @@ function quess($s){
     echo "<div><input type='submit' value='ответить' id='sub'></div> </form>";
 }
 ?>
-
+</body>
+</html>
