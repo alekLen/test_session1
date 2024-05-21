@@ -1,11 +1,16 @@
 <?php
 session_start();
-$_SESSION['name']=$_GET['name'];
-if(!isset($_GET['name']))
+if(!isset($_SESSION['name']))
 {
-    header("Location:index.php");
-   exit();
+    if(!isset($_GET['name']))
+    {
+            header("Location:index.php");
+        exit();
+    }
+    else  $_SESSION['name']=$_GET['name'];
+
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
