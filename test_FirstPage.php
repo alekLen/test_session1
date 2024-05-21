@@ -34,7 +34,7 @@ if(!isset($_GET['name']))
 </head>
 <body style="background-color: paleturquoise">
 <div><h1>1.Выберите один правильный ответ</h1></div>
-    <form method="post"   >
+    <form method="post" action="test_SecondPage.php"  >
         <?php
         $s = array();
 if(count($_POST)==0 ){
@@ -54,7 +54,7 @@ else {
         echo "<div><h4 style='color:red'>Ответьте на все вопросы</h4></div>";
         quess($s);
     } else {
-        try{
+
         $result = 0;
         $s1 = array();
         $arr = file("test1.txt");
@@ -76,9 +76,7 @@ else {
       $_SESSION['result']=$result;
         header("Location:test_SecondPage.php");
        exit();
-        }
-        catch(Exception $e){  echo "<div><h4 style='color:red'>$emp_errormsg</h4></div>";
-        }
+
     }
 }
 
