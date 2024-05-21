@@ -36,14 +36,11 @@ if(!isset($_GET['name']))
 <div><h1>1.Выберите один правильный ответ</h1></div>
     <form method="post"  >
         <?php
-
+        $s = array();
 if(count($_POST)==0){
      //   session_start();
-        quess(null);
-
-    $result = $_SESSION['result'];
-    echo "<div >Ваш результат за 1-й тест:&nbsp; <b>".$_SESSION['result']."</b></div>";
-
+        quess($s);
+    echo "<div><h4 style='color:red'>Вы не ответили ни на один вопрос</h4></div>";
 
 }
 else {
