@@ -37,10 +37,10 @@ if(!isset($_GET['name']))
     <form method="post"  >
         <?php
         $s = array();
-if(count($_POST)==0){
+if(count($_POST)==0 ){
      //   session_start();
-        quess($s);
-    echo "<div><h4 style='color:red'>Вы не ответили ни на один вопрос</h4></div>";
+        quess(null);
+
 
 }
 else {
@@ -54,6 +54,7 @@ else {
         echo "<div><h4 style='color:red'>Ответьте на все вопросы</h4></div>";
         quess($s);
     } else {
+        try{
         $result = 0;
         $s1 = array();
         $arr = file("test1.txt");
@@ -61,13 +62,17 @@ else {
         for ($i = 0; $i < 10; $i++) {
             $arr2 = explode(";", $arr1[$i]);
             $c = count($arr2) - 1;
-            $i1=$i+1;
-            $ww=false;
-            for($u=0;$u<count($_POST);$u++) {
-                if ($_POST["r".$i1] == "v" . $i1 . ":" . $arr2[$c])
-            $ww=true;}
-            if($ww)
-                $result +=1;
+            $i1 = $i + 1;
+            $ww = false;
+            for ($u = 0; $u < count($_POST); $u++) {
+                if ($_POST["r" . $i1] == "v" . $i1 . ":" . $arr2[$c])
+                    $ww = true;
+            }
+            if ($ww)
+                $result += 1;
+         }
+        }
+         catch(Exception $e){  echo "<div><h4 style='color:red'>$emp_errormsg</h4></div>";
         }
       $_SESSION['result']=$result;
         header("Location:test_SecondPage.php");
