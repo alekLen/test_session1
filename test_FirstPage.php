@@ -41,10 +41,13 @@ if(count($_POST)==0){
      //   session_start();
         quess(null);
 
+    $result = $_SESSION['result'];
+    echo "<div >Ваш результат за 1-й тест:&nbsp; <b>".$_SESSION['result']."</b></div>";
+
 
 }
 else {
-    $s = array();
+
     $i = 0;
     foreach ($_POST as $ans) {
         $s[$i] = $ans;
